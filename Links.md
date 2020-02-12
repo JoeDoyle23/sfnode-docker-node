@@ -1,3 +1,6 @@
 Docker - https://docker.com
-NodeSource Docker Images - https://github.com/nodesource/docker-node
-boot2docker in Parallels - https://github.com/Parallels/boot2docker-vagrant-box/blob/eb8078d0068ecf0a57dc718c5cadf70748128f25/README.md
+Offical Node.js Docker Images - https://hub.docker.com/_/node
+Offical Node.js Dockerfiles - https://github.com/nodejs/docker-node
+
+Docker for Windows - https://docs.docker.com/docker-for-windows/install/
+Docker for Mac - https://docs.docker.com/docker-for-mac/install/

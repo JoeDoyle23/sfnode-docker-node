@@ -1,4 +1,4 @@
-FROM nodesource/trusty:iojs-2.5.0
+FROM node:12
 
 ENTRYPOINT ["node", "app"]
 

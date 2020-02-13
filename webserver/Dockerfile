@@ -1,13 +1,30 @@
 FROM node:12
 
-ENTRYPOINT ["node", "app"]
+RUN mkdir /var/app
+WORKDIR /var/app
 
-ENV NODE_ENV production
-ENV PORT 3500
+COPY package*.json /var/app/
+
+RUN npm ci --only=production
+
+COPY . /var/app
+
+FROM node:12-alpine3.10
+
+RUN mkdir /var/app
+
+USER node
+
+WORKDIR /var/app
+
+COPY --from=0 --chown=node:node /var/app /var/app
+
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
+
+ARG PORT=5000
+ENV PORT $PORT
 
 EXPOSE $PORT
 
-ADD . /app
-WORKDIR /app
-
-RUN npm install --production
+ENTRYPOINT ["node", "app"]

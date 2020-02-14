@@ -1,10 +1,10 @@
 const fs = require("fs");
-const logger = require("morgan");
+const morgan = require("morgan");
 const express = require("express");
 
 const app = express();
 
-app.use(logger("dev"));
+app.use(morgan("dev"));
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get("/", (req, res) => {

@@ -5,9 +5,11 @@ WORKDIR /var/app
 
 COPY package*.json /var/app/
 
-RUN npm ci --only=production
+RUN npm install
 
 COPY . /var/app
+
+# Do build here if needed
 
 FROM node:12-alpine3.10
 
@@ -18,6 +20,8 @@ USER node
 WORKDIR /var/app
 
 COPY --from=0 --chown=node:node /var/app /var/app
+
+RUN npm ci --only=production
 
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV

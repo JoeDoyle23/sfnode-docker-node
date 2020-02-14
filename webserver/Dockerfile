@@ -1,3 +1,4 @@
+# Base Image with everything
 FROM node:12
 
 RUN mkdir /var/app
@@ -11,6 +12,7 @@ COPY . /var/app
 
 # Do build here if needed
 
+# Tiny Alpine Image to use for final version
 FROM node:12-alpine3.10
 
 RUN mkdir /var/app
